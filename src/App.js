@@ -36,7 +36,11 @@ function App() {
   const showModal = () => {
     setModalVisibility(true)
   }
+  const closeModal = () => {
+    setModalVisibility(false)
+  }
 
+  const modalRef = React.useRef();
   
   return (
     <div className="App">
@@ -51,7 +55,7 @@ function App() {
           }
         </ul>
       </main>
-      {modalVisibility && <Modal userInfo={userInfo} setUserInfo={setUserInfo} setUsersList={setUsersList} usersList={usersList} />}
+      {modalVisibility && <Modal ref={modalRef} userInfo={userInfo} setUserInfo={setUserInfo} setUsersList={setUsersList} usersList={usersList} closeModal={closeModal}/>}
       
     </div>
   );
