@@ -1,0 +1,13 @@
+Components:
+ --Header 
+	--search
+	--icons
+	--add
+ --Main list
+	--list item
+ --Add component modal
+
+Technologies:
+	--React
+	--Hooks
+	--Material UI
