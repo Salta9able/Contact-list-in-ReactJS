@@ -12,6 +12,70 @@ code {
     monospace;
 }
 
-.addBtn {
-  color: green;
+/*app*/
+.App {
+  width: 80%;
+  margin: 2em auto;
+  padding: 2em;
+}
+
+
+/*header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  gap: 4em;
+}
+
+.logic {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputCustom {
+  width: 85%;
+}
+
+.modal {
+   width: 20em;
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   padding: 1em;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.close_btn {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+/* container */ 
+
+.container{
+  border: 1px solid red;
+}
+.userListGrid {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-gap: 2em;
+}
+
+.userListGrid .userItem {
+  background: red;
+  padding: 0.8em;
 }

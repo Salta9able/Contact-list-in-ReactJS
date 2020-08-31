@@ -11,3 +11,11 @@ Technologies:
 	--React
 	--Hooks
 	--Material UI
+
+
+Things to do:
+ - form validation
+ - css
+ - search implementation
+ - layout buttons
+ 

@@ -1,9 +1,8 @@
 import React from 'react'
 import Input from '@material-ui/core/Input'
 import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 import { v4 as uuidv4 } from 'uuid'
-
-import './style.css'
 
 const Modal = React.forwardRef(({setUsersList, usersList, userInfo, setUserInfo, closeModal}, ref) => {
     const handleChange = (e) => {
@@ -26,9 +25,10 @@ const Modal = React.forwardRef(({setUsersList, usersList, userInfo, setUserInfo,
 
     return (
         <div ref={ref} className="modal">
-            <button className="close_btn" onClick={() => closeModal()}>
+            <IconButton className="close_btn" onClick={() => closeModal()}>
                 <CloseIcon />
-            </button>
+            </IconButton>
+            
             <form>
                 <Input type="text" name="name" placeholder="Name" value={userInfo.name} onChange={handleChange}/>
                 <Input type="text" name="age" placeholder="Age" value={userInfo.age} onChange={handleChange}/>

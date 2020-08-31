@@ -5,6 +5,8 @@ import User from './components/User'
 import Modal from './components/Modal'
 import { v4 as uuidv4 } from 'uuid'
 
+import './index.css'
+
 function App() {
   const [text,setText] = React.useState('')
   const [usersList, setUsersList] = React.useState([
@@ -49,7 +51,7 @@ function App() {
         <Logic showModal={showModal}/>
       </header>
       <main className="container">
-        <ul className='userList'>
+        <ul className='userListGrid'>
           {
             usersList.map((item, index) => <User key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
           }
