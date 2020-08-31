@@ -64,18 +64,57 @@ header {
 
 /* container */ 
 
-.container{
-  border: 1px solid red;
-}
 .userListGrid {
   list-style: none;
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 350px));
   grid-gap: 2em;
 }
 
-.userListGrid .userItem {
-  background: red;
-  padding: 0.8em;
+.userListGrid li {
+  border: 1px solid lightgray;
+  padding: 1.5em;
+  text-align: center;
+}
+
+.userName {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.userListGrid .misc, 
+.userListRow .misc
+{
+  text-align: left;
+  color: darkgray;
+}
+.buttons {
+  margin-top: 0.6em;
+  display: flex;
+  justify-content: space-around;
+}
+
+.userListRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  gap: 1em;
+}
+
+.userListRow li {
+  border: 1px solid lightgray;
+  padding: 1em;
+  flex-grow: 1;
+  /* display: flex;
+  justify-content: space-around; */
+  columns: 3;
+  column-rule: 1px solid lightgray;
+}
+.userListRow .misc {
+  display: flex;
+  gap: 1em;
 }

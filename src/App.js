@@ -31,6 +31,7 @@ function App() {
     const userItem = usersList.find(user => user.id === id);
     setUsersList(newList)
     setUserInfo(userItem)
+    showModal()
   }
 
   //modal toggle
@@ -42,16 +43,26 @@ function App() {
     setModalVisibility(false)
   }
 
-  const modalRef = React.useRef();
+  const modalRef = React.useRef()
   
+  //layout control
+ const [grid, setGrid] = React.useState('userListRow')
+ const handleGridLayout = () => {
+   setGrid('userListGrid')
+ }
+ const handleRowLayout = () => {
+   setGrid('userListRow')
+ }
+
   return (
     <div className="App">
       <header>
         <Search text={text} onTextChange={onTextChange}/>
-        <Logic showModal={showModal}/>
+        <Logic showModal={showModal} handleGridLayout={handleGridLayout}
+        handleRowLayout={handleRowLayout}/>
       </header>
       <main className="container">
-        <ul className='userListGrid'>
+        <ul className={grid}>
           {
             usersList.map((item, index) => <User key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
           }
