@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './index.css'
 
 function App() {
-  const [text,setText] = React.useState('')
+  const [searchText,setSearchText] = React.useState('')
   const [usersList, setUsersList] = React.useState([
     { id: 0, name: 'Galieva Saltanat', age: 29, email: 'galievasaltanat@gmail.com'}
   ])
@@ -18,7 +18,7 @@ function App() {
 
 
   const onTextChange = (e) => {
-    setText(e.target.value)
+    setSearchText(e.target.value)
   }
 
   const handleDelete = (id) => {
@@ -54,17 +54,18 @@ function App() {
    setGrid('userListRow')
  }
 
+
   return (
     <div className="App">
       <header>
-        <Search text={text} onTextChange={onTextChange}/>
+        <Search text={searchText} onTextChange={onTextChange}/>
         <Logic showModal={showModal} handleGridLayout={handleGridLayout}
         handleRowLayout={handleRowLayout}/>
       </header>
       <main className="container">
         <ul className={grid}>
           {
-            usersList.map((item, index) => <User key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
+            usersList.map((item, index) => <User searchText={searchText} key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
           }
         </ul>
       </main>

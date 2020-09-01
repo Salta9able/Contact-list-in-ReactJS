@@ -1,7 +1,12 @@
 import React from 'react'
 import { Button } from '@material-ui/core'
 
-function User({user, handleDelete, handleEdit}) {
+function User({user, handleDelete, handleEdit, searchText}) {
+    if (searchText !== '' && user.name.toLowerCase().indexOf( searchText.toLowerCase()) === -1) {
+        return null
+    }
+
+
     return (
         <li>
             <div className="userName">{user.name}</div>

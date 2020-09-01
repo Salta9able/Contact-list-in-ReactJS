@@ -1,15 +1,13 @@
 import React from 'react'
-import {Button} from '@material-ui/core'
 import Input from '@material-ui/core/Input';
 
 
 
 
-const Search = React.memo(({text, onTextChange}) => {
+const Search = React.memo(({searchText, onTextChange}) => {
     return (
         <div className="search">
-            <Input className="inputCustom" type="text" value={text} onChange={(e) => onTextChange(e)} />
-            <Button variant="outlined" color="primary">Search</Button>
+            <Input className="inputCustom" type="text" value={searchText} onChange={(e) => onTextChange(e)} placeholder="Search for name" />
         </div>
     )
 })
