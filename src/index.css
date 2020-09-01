@@ -14,11 +14,27 @@ code {
 
 /*app*/
 .App {
-  width: 80%;
-  margin: 2em auto;
-  padding: 2em;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 0;
+  margin-top: 0;
+}
+.shadow .overlay{
+  position: fixed; /* Positioning and size */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128,128,128,0.5); /* color */
+ 
 }
 
+.wrapper {
+  width: 80%;
+  margin: 0em auto;
+  padding: 2em;
+}
 
 /*header */
 header {
@@ -47,21 +63,34 @@ header {
 
 .modal {
    width: 20em;
-   border: 1px solid black;
+   border: 1px solid rgba(128,128,128,0.5);
    display: flex;
    flex-direction: column;
-   padding: 1em;
-   position: absolute;
+   padding: 2em;
+   position: fixed;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+   background: #fff;
 }
-.close_btn {
+.modal .close_btn {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: 0.5em;
+  top: 0.5em;
 }
 
+.modal form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+
+.modal .submitBtn {
+  border: 1px solid rgba(128,128,128,0.5);
+  border-radius: 5px;
+}
 /* container */ 
 
 .userListGrid {
@@ -111,8 +140,8 @@ header {
   padding: 1em;
   width: 90%;
   min-width: 700px;
-  columns: 3;
-  column-rule: 1px solid lightgray;
+  display: grid;
+  grid-template-columns: 1fr 2fr 150px;
 }
 .userListRow .misc {
   display: flex;

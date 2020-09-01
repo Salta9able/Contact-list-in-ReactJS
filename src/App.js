@@ -10,7 +10,7 @@ import './index.css'
 function App() {
   const [searchText,setSearchText] = React.useState('')
   const [usersList, setUsersList] = React.useState([
-    { id: 0, name: 'Galieva Saltanat', age: 29, email: 'galievasaltanat@gmail.com'}
+    { id: 0, name: 'Bob Ross', age: 55, email: 'example@gmail.com'}
   ])
 
   const firstID = uuidv4()
@@ -56,21 +56,25 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header>
-        <Search text={searchText} onTextChange={onTextChange}/>
-        <Logic showModal={showModal} handleGridLayout={handleGridLayout}
-        handleRowLayout={handleRowLayout}/>
-      </header>
-      <main className="container">
-        <ul className={grid}>
-          {
-            usersList.map((item, index) => <User searchText={searchText} key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
-          }
-        </ul>
-      </main>
+    <div className={`App ${modalVisibility ? 'shadow' : ''}`}>
+      <div className="overlay">
+        <div className="wrapper">
+          <header>
+            <Search text={searchText} onTextChange={onTextChange}/>
+            <Logic showModal={showModal} handleGridLayout={handleGridLayout}
+            handleRowLayout={handleRowLayout}/>
+          </header>
+          <main className="container">
+            <ul className={grid}>
+              {
+                usersList.map((item, index) => <User searchText={searchText} key={`${index}_${item.email}`} index={index} user={item} handleDelete={handleDelete} handleEdit={handleEdit} />)
+              }
+            </ul>
+          </main>
+          
+        </div>
+      </div>
       {modalVisibility && <Modal ref={modalRef} userInfo={userInfo} setUserInfo={setUserInfo} setUsersList={setUsersList} usersList={usersList} closeModal={closeModal}/>}
-      
     </div>
   );
 }
