@@ -44,6 +44,16 @@ function App() {
   }
 
   const modalRef = React.useRef()
+
+  const handleClickModal =(e) => {
+    if (!e.path.includes(modalRef.current)) {
+      closeModal()
+    }
+  }
+
+  React.useEffect(() => {
+    document.body.addEventListener('click', handleClickModal);
+  }, [handleClickModal])
   
   //layout control
  const [grid, setGrid] = React.useState('userListRow')
@@ -53,6 +63,7 @@ function App() {
  const handleRowLayout = () => {
    setGrid('userListRow')
  }
+
 
 
   return (
